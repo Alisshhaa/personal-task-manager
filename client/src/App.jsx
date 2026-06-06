@@ -13,7 +13,7 @@ function App() {
 
     try {
       const response = await axios.post(
-       " https://personal-task-manager-api-1bhc.onrender.com/tasks",
+       "https://personal-task-manager-api-1bhc.onrender.com/tasks",
         {
           title: newTask,
           description: description,
@@ -37,7 +37,7 @@ function App() {
     if (!confirmDelete) return;
     try {
       await axios.delete(
-        `https://personal-task-manager-api-1bhc.onrender.com/tasks/${id}`
+        "https://personal-task-manager-api-1bhc.onrender.com/tasks/${id}"
       );
 
       setTasks(
@@ -51,7 +51,7 @@ function App() {
   const toggleTask = async (id, completed) => {
     try {
       const response = await axios.put(
-        `https://personal-task-manager-api-1bhc.onrender.com/tasks/${id}`,
+        "https://personal-task-manager-api-1bhc.onrender.com/tasks/${id}",
         {
           completed: !completed,
         }
@@ -94,7 +94,7 @@ function App() {
 
   try {
     const response = await axios.put(
-      `https://personal-task-manager-api-1bhc.onrender.com/tasks/${id}`,
+      "https://personal-task-manager-api-1bhc.onrender.com/tasks/${id}",
       {
         title: newTitle,
         description: newDescription,
