@@ -116,7 +116,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://personal-task-manager-api-1bhc.onrender.com/")
+      .get("https://personal-task-manager-api-1bhc.onrender.com/tasks")
       .then((response) => {
         setTasks(response.data);
       })
