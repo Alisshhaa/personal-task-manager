@@ -13,7 +13,7 @@ function App() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/tasks",
+       " https://personal-task-manager-api-1bhc.onrender.com/",
         {
           title: newTask,
           description: description,
@@ -37,7 +37,7 @@ function App() {
     if (!confirmDelete) return;
     try {
       await axios.delete(
-        `http://localhost:5000/tasks/${id}`
+        `https://personal-task-manager-api-1bhc.onrender.com/${id}`
       );
 
       setTasks(
@@ -51,7 +51,7 @@ function App() {
   const toggleTask = async (id, completed) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/tasks/${id}`,
+        `https://personal-task-manager-api-1bhc.onrender.com/${id}`,
         {
           completed: !completed,
         }
@@ -94,7 +94,7 @@ function App() {
 
   try {
     const response = await axios.put(
-      `http://localhost:5000/tasks/${id}`,
+      `https://personal-task-manager-api-1bhc.onrender.com/${id}`,
       {
         title: newTitle,
         description: newDescription,
@@ -116,7 +116,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/tasks")
+      .get("https://personal-task-manager-api-1bhc.onrender.com/")
       .then((response) => {
         setTasks(response.data);
       })
