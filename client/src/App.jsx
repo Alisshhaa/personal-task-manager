@@ -13,7 +13,7 @@ function App() {
 
     try {
       const response = await axios.post(
-       "https://personal-task-manager-api-1bhc.onrender.com/tasks",
+       `https://personal-task-manager-api-1bhc.onrender.com/tasks`,
         {
           title: newTask,
           description: description,
@@ -30,6 +30,8 @@ function App() {
     }
   };
   const deleteTask = async (id) => {
+    console.log("DELETE FUNCTION CALLED", id);
+alert("DELETE CLICKED: " + id);
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this task?"
     );
@@ -37,7 +39,7 @@ function App() {
     if (!confirmDelete) return;
     try {
       await axios.delete(
-        "https://personal-task-manager-api-1bhc.onrender.com/tasks/${id}"
+        `https://personal-task-manager-api-1bhc.onrender.com/tasks/${id}`
       );
 
       setTasks(
@@ -51,7 +53,7 @@ function App() {
   const toggleTask = async (id, completed) => {
     try {
       const response = await axios.put(
-        "https://personal-task-manager-api-1bhc.onrender.com/tasks/${id}",
+        `https://personal-task-manager-api-1bhc.onrender.com/tasks/${id}`,
         {
           completed: !completed,
         }
@@ -94,7 +96,7 @@ function App() {
 
   try {
     const response = await axios.put(
-      "https://personal-task-manager-api-1bhc.onrender.com/tasks/${id}",
+      `https://personal-task-manager-api-1bhc.onrender.com/tasks/${id}`,
       {
         title: newTitle,
         description: newDescription,
@@ -116,7 +118,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://personal-task-manager-api-1bhc.onrender.com/tasks")
+      .get(`https://personal-task-manager-api-1bhc.onrender.com/tasks`)
       .then((response) => {
         setTasks(response.data);
       })
@@ -383,7 +385,9 @@ marginTop: "40px"
                 </button>
 
                 <button
-                  onClick={() => deleteTask(task.id)}
+                  onClick={() => {
+    console.log("DELETE TASK:", task);
+    console.log("DELETE ID:", task.id);deleteTask(task.id)}}
                   style={{
                     marginLeft: "10px",
   backgroundColor: "#f44336",
