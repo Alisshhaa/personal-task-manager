@@ -128,20 +128,36 @@ function App() {
   return (
     <div className="container"
       style={{
-        width: "700px",
+  width: "850px",
+  maxWidth: "95%",
   margin: "40px auto",
-  padding: "25px",
-  backgroundColor: "white",
-  borderRadius: "15px",
-  boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
-        display: "flex",
-flexDirection: "column",
-alignItems: "center",
-marginTop: "40px"
-      }}
+  padding: "30px",
+  backgroundColor: "#ffffff",
+  borderRadius: "20px",
+  boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center"
+}}
     >
-      <h1 style={{ textAlign: "center",color: "#1e293b",
-    marginBottom: "20px", }}>Personal Task Manager 📋 </h1>
+      <h1
+  style={{
+    textAlign: "center",
+    color: "#1e293b",
+    fontSize: "36px",
+    fontWeight: "bold",
+    marginBottom: "5px",
+  }}
+>
+  📝 Personal Task Manager
+</h1> <p
+  style={{
+    color: "#64748b",
+    marginBottom: "25px",
+  }}
+>
+  Organize your tasks efficiently and never miss a deadline.
+</p>
     <br />
   
       <input
@@ -181,9 +197,15 @@ marginTop: "40px"
       <button
         onClick={addTask}
         style={{
-          marginTop: "15px",
-          padding: "8px 12px",
-        }}
+  marginTop: "15px",
+  padding: "12px 20px",
+  backgroundColor: "#2563eb",
+  color: "white",
+  border: "none",
+  borderRadius: "8px",
+  cursor: "pointer",
+  fontWeight: "bold",
+}}
       >
         Add Task
       </button>
@@ -196,13 +218,13 @@ marginTop: "40px"
         onChange={(e) =>
           setSearchTerm(e.target.value)}
           style={{
-    width: "250px",
-    padding: "10px",
-    borderRadius: "6px",
-    border: "1px solid #ccc",
-    marginTop: "15px",
-    marginBottom: "15px"
-        }}
+  width: "300px",
+  padding: "12px",
+  borderRadius: "8px",
+  border: "1px solid #cbd5e1",
+  marginTop: "20px",
+  marginBottom: "20px",
+}}
       />
       <div style={{ display: "flex",
     justifyContent: "center",
@@ -223,15 +245,27 @@ marginTop: "40px"
       </div>
 
 
-      <p>Total Tasks: {tasks.length}</p>
+      <div
+  style={{
+    display: "flex",
+    gap: "30px",
+    margin: "20px 0",
+    fontWeight: "bold",
+    color: "#334155",
+  }}
+>
+  <span>📌 Total: {tasks.length}</span>
 
-      <p>
-        Completed: {tasks.filter(task => task.completed).length}
-      </p>
+  <span>
+    ✅ Completed:{" "}
+    {tasks.filter(task => task.completed).length}
+  </span>
 
-      <p>
-        Active: {tasks.filter(task => !task.completed).length}
-      </p>
+  <span>
+    ⏳ Active:{" "}
+    {tasks.filter(task => !task.completed).length}
+  </span>
+</div>
       {
         tasks.length > 0 &&
         tasks.every((task) => task.completed) && (
@@ -268,12 +302,19 @@ marginTop: "40px"
 
           return true;
         }).length === 0 && (
-          <p>No tasks found</p>
+          <p
+  style={{
+    color: "#64748b",
+    fontWeight: "bold",
+  }}
+>
+  No tasks found!
+</p>
         )
       }
 
       <ul>
-        {tasks
+        {[tasks]
           .sort((a, b) => b.id - a.id)
           .filter((task) => {
             if (
@@ -301,16 +342,18 @@ marginTop: "40px"
             return (
               <li
                 key={task.id}
-                style={{ 
-  width: "350px",
+                style={{
+  width: "450px",
   margin: "15px auto",
-  padding: "15px",
+  padding: "18px",
   border: isOverdue
-    ? "2px solid red"
-    : "1px solid #ddd",
-  borderRadius: "10px",
-  backgroundColor: "white",
-  boxShadow: "0 2px 5px rgba(0,0,0,0.1)",}}>
+    ? "2px solid #ef4444"
+    : "1px solid #e2e8f0",
+  borderRadius: "14px",
+  backgroundColor: "#ffffff",
+  boxShadow: "0 4px 10px rgba(0,0,0,0.08)",
+  listStyle: "none",
+}}>
 
                 <input
                   type="checkbox"
@@ -369,13 +412,16 @@ marginTop: "40px"
                 }
                 <button
                   onClick={() => editTask(task.id)}
-                  style={{backgroundColor: "#2196F3",
-    color: "white",
-    border: "none",
-    padding: "6px 10px",
-    borderRadius: "5px",
-    cursor: "pointer",
-     marginLeft: "10px" }}
+                  style={{
+  backgroundColor: "#3b82f6",
+  color: "white",
+  border: "none",
+  padding: "8px 12px",
+  borderRadius: "6px",
+  cursor: "pointer",
+  marginLeft: "10px",
+  fontWeight: "bold",
+}}
                 >
                   Edit
                 </button>
@@ -383,14 +429,15 @@ marginTop: "40px"
                 <button
                   onClick={() => deleteTask(task.id)}
                   style={{
-                    marginLeft: "10px",
-  backgroundColor: "#f44336",
+  marginLeft: "10px",
+  backgroundColor: "#ef4444",
   color: "white",
   border: "none",
-  padding: "6px 10px",
-  borderRadius: "5px",
+  padding: "8px 12px",
+  borderRadius: "6px",
   cursor: "pointer",
-                  }}
+  fontWeight: "bold",
+}}
                 >
                   Delete
                 </button>

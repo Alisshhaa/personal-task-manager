@@ -56,20 +56,19 @@ app.post("/tasks", (req, res) => {
 app.delete("/tasks/:id", (req, res) => {
   const id = parseInt(req.params.id);
 
-  console.log("Deleting ID:", id);
+  
 
   tasks = tasks.filter((task) => task.id !== id);
   saveTasks();
 
-  console.log(tasks);
+  
 
   res.json({
     message: "Task deleted",
   });
 });
 app.put("/tasks/:id", (req, res) => {
-  console.log("PUT ID:", req.params.id);
-  console.log("BODY:", req.body);
+  
   const id = parseInt(req.params.id);
 
   const task = tasks.find(
@@ -96,12 +95,12 @@ task.dueDate =
     task.completed =
       req.body.completed;
   }
-  console.log("UPDATED TASK:", task);
+ 
   saveTasks();
   res.json(task);
   
 });
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log("Server running on port " + PORT);
