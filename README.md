@@ -1,119 +1,290 @@
-# Personal Task Manager
+# Personal Task Manager 📋
 
-A full-stack task management application built using React, Node.js, and Express.
+## Project Title & Brief Description
+
+This project is a solution for Exercise 1: Personal Task Manager from the Studio Graphene Associate Software Engineer Take-Home Assignment.
+
+Personal Task Manager is a full-stack task management application built using React, Node.js, and Express.js. The application allows users to create, edit, delete, search, and manage tasks efficiently. Users can set due dates, mark tasks as completed, view overdue tasks, and filter tasks based on their status. Task data is stored using a JSON file and the application is deployed using Vercel (Frontend) and Render (Backend).
+
+---
+
+## Live Demo Links
+
+### Frontend
+https://personal-task-manager-xi.vercel.app
+
+### Backend
+https://personal-task-manager-api-1bhc.onrender.com
+
+### GitHub Repository:
+https://github.com/Alisshhaa/personal-task-manager
+
+---
 
 ## Features
 
-- Add tasks
-- Edit tasks
+- Add new tasks
+- Edit existing tasks
 - Delete tasks
-- Task completion toggle
+- Mark tasks as completed
 - Search tasks
 - Filter tasks (All, Active, Completed)
-- Due dates
-- Task descriptions
-- Overdue task highlighting
-- Active and completed task counters
-- Empty state message
+- Due date support
+- Overdue task indication
+- Task statistics dashboard
 - Persistent storage using JSON file
+- Responsive and clean user interface
+
+---
 
 ## Tech Stack
 
-Frontend:
-- React
+### Frontend
+- React.js
+- React Hooks 
+- Vite
 - Axios
-- CSS
+- JavaScript
+- HTML5
+- CSS3
 
-Backend:
+### Backend
 - Node.js
-- Express
-- CORS
+- Express.js
 
-Storage:
-- JSON File (tasks.json)
+### Storage
+- JSON File (`tasks.json`)
 
-## Project Structure
+### Deployment
+- Vercel (Frontend)
+- Render (Backend)
 
-task-manager/
-│
-├── client/
-│ ├── src/
-│ ├── public/
-│ └── package.json
-│
-├── server/
-│ ├── server.js
-│ ├── tasks.json
-│ └── package.json
-│
-└── README.md
+### Version Control
+- Git
+- GitHub
 
-## API Endpoints
+---
 
-### Get All Tasks
+## How To Run Locally
 
-GET
+### Clone Repository
 
-```
-/tasks
+```bash
+git clone https://github.com/Alisshhaa/personal-task-manager.git
 ```
 
-### Create Task
+### Backend Setup
 
-POST
+Navigate to backend folder:
 
+```bash
+cd server
 ```
-/tasks
+
+Install dependencies:
+
+```bash
+npm install
 ```
 
-Request Body:
+Start backend server:
+
+```bash
+node server.js
+```
+
+Backend will run on:
+
+```text
+http://localhost:5000
+```
+
+---
+
+### Frontend Setup
+
+Navigate to frontend folder:
+
+```bash
+cd client
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start development server:
+
+```bash
+npm run dev
+```
+
+Frontend will run on:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## API Documentation
+
+### 1. Get All Tasks
+
+**Endpoint**
+
+```http
+GET /tasks
+```
+
+**Response**
+
+```json
+[
+  {
+    "id": 1,
+    "title": "Learn React",
+    "description": "Practice Hooks",
+    "dueDate": "2026-06-10",
+    "completed": false
+  }
+]
+```
+
+---
+
+### 2. Create Task
+
+**Endpoint**
+
+```http
+POST /tasks
+```
+
+**Request Body**
 
 ```json
 {
   "title": "Learn React",
-  "description": "Finish hooks",
+  "description": "Practice Hooks",
   "dueDate": "2026-06-10"
 }
 ```
 
-### Update Task
+**Response**
 
-PUT
-
-```
-/tasks/:id
-```
-
-### Delete Task
-
-DELETE
-
-```
-/tasks/:id
+```json
+{
+  "id": 1,
+  "title": "Learn React",
+  "description": "Practice Hooks",
+  "dueDate": "2026-06-10",
+  "completed": false
+}
 ```
 
-## Run Locally
+---
 
-### Backend
+### 3. Update Task
 
-```bash
-cd server
-npm install
-node server.js
+**Endpoint**
+
+```http
+PUT /tasks/:id
 ```
 
-### Frontend
+**Request Body**
 
-```bash
-cd client
-npm install
-npm run dev
+```json
+{
+  "title": "Updated Task",
+  "description": "Updated Description",
+  "dueDate": "2026-06-15",
+  "completed": true
+}
 ```
 
-## Future Improvements
+**Response**
 
-- Drag and drop tasks
-- Authentication
-- SQLite database
-- Dark mode
-- Better mobile responsiveness
+```json
+{
+  "id": 1,
+  "title": "Updated Task",
+  "description": "Updated Description",
+  "dueDate": "2026-06-15",
+  "completed": true
+}
+```
+
+---
+
+### 4. Delete Task
+
+**Endpoint**
+
+```http
+DELETE /tasks/:id
+```
+
+**Response**
+
+```json
+{
+  "message": "Task deleted"
+}
+```
+
+---
+
+## Project Structure
+
+```text
+personal-task-manager
+
+├── client
+│   ├── src
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   └── package.json
+│
+├── server
+│   ├── server.js
+│   ├── tasks.json
+│   └── package.json
+│
+└── README.md
+```
+
+---
+
+## Next Steps / Future Improvements
+
+If more development time were available, the following improvements could be added:
+
+- User Authentication and Authorization
+- Database Integration (MongoDB/PostgreSQL)
+- Dark Mode Support
+- Drag and Drop Task Reordering
+- Task Categories and Tags
+- Task Priority Levels
+
+
+---
+
+## Deployment
+
+### Frontend Deployment
+Vercel
+
+### Backend Deployment
+Render
+
+---
+
+## Author
+
+Alisha Gupta
+
