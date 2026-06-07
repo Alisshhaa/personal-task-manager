@@ -314,7 +314,7 @@ function App() {
       }
 
       <ul>
-        {[tasks]
+        {tasks
           .sort((a, b) => b.id - a.id)
           .filter((task) => {
             if (
