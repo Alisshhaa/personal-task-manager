@@ -315,12 +315,14 @@ marginTop: "40px"
                 <input
                   type="checkbox"
                   checked={task.completed}
-                  onChange={() =>
+                  onChange={() =>{
+    console.log("TASK OBJECT:", task);
+    console.log("TASK ID:", task.id);
                     toggleTask(
                       task.id,
                       task.completed
                     )
-                  }
+                  }}
 
                 />
 
@@ -337,7 +339,7 @@ marginTop: "40px"
                       : "normal",
                   }}
                 >
-                  {task.title}
+                  {task.title} - ID: {task.id}
                 </span>
                 {task.description && (
                   <div
