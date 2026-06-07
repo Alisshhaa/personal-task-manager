@@ -68,6 +68,8 @@ app.delete("/tasks/:id", (req, res) => {
   });
 });
 app.put("/tasks/:id", (req, res) => {
+  console.log("PUT ID:", req.params.id);
+  console.log("BODY:", req.body);
   const id = parseInt(req.params.id);
 
   const task = tasks.find(
