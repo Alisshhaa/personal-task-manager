@@ -30,8 +30,6 @@ function App() {
     }
   };
   const deleteTask = async (id) => {
-    console.log("DELETE FUNCTION CALLED", id);
-alert("DELETE CLICKED: " + id);
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this task?"
     );
@@ -317,14 +315,12 @@ marginTop: "40px"
                 <input
                   type="checkbox"
                   checked={task.completed}
-                  onChange={() =>{
-    console.log("TASK OBJECT:", task);
-    console.log("TASK ID:", task.id);
+                  onChange={() =>
                     toggleTask(
                       task.id,
                       task.completed
                     )
-                  }}
+                  }
 
                 />
 
@@ -341,7 +337,7 @@ marginTop: "40px"
                       : "normal",
                   }}
                 >
-                  {task.title} - ID: {task.id}
+                  {task.title} 
                 </span>
                 {task.description && (
                   <div
@@ -385,9 +381,7 @@ marginTop: "40px"
                 </button>
 
                 <button
-                  onClick={() => {
-    console.log("DELETE TASK:", task);
-    console.log("DELETE ID:", task.id);deleteTask(task.id)}}
+                  onClick={() => deleteTask(task.id)}
                   style={{
                     marginLeft: "10px",
   backgroundColor: "#f44336",
